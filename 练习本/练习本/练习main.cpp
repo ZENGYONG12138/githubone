@@ -1,8 +1,4 @@
 
-/*
-练习1：让用户输入一个字母，输出相反的大小写字母。
-*/
-
 #include <iostream>
 #include <string>
 #include <Windows.h>
@@ -10,18 +6,35 @@
 using namespace std;
 
 int main(void) {
-	char zeng;
+	string name;
+	string pwd;
 
-	cout << "请输入一个字母：";
-	cin >> zeng;
+	while (1) {
+		system("cls"); //清除屏幕
+		cout << "请输入账号：";
+		cin >> name;
 
-	if (zeng >= 'a' && zeng <= 'z') {
-		zeng = zeng - 'a' + 'A';
-	} else if(zeng >= 'A' && zeng <= 'Z') {
-		zeng = zeng - 'A' + 'a';
+		cout << "请输入密码：";
+		cin >> pwd;
+
+		system("cls");
+
+		if (name == "Zeng" && pwd == "123456") {
+			break;
+		} else {
+			cout << "用户名或密码错误！" << endl;
+			system("pause");
+		}
 	}
 
-	cout << zeng << endl;
+	system("cls");
+
+	cout << "1.网站404攻击" << endl;
+	cout << "2.网站篡改攻击" << endl;
+	cout << "3.网站攻击记录" << endl;
+	cout << "4.DNS攻击" << endl;
+	cout << "5.服务器重启攻击" << endl;
+
 	system("pause");
 	return 0;
 }
