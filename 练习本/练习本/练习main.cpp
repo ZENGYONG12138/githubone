@@ -1,39 +1,54 @@
-
 #include <iostream>
-#include <string>
 #include <Windows.h>
 
 using namespace std;
 
 int main(void) {
-	string name;
-	string pwd;
 
-	while (1) {
-		system("cls"); //清除屏幕
-		cout << "请输入账号：";
-		cin >> name;
+	int numberA;
+	cout << "请输入一个数字: ";
+	cin >> numberA;
 
-		cout << "请输入密码：";
-		cin >> pwd;
+	char calcType;
+	cout << "请输入一个运算符(+,-,*,/): ";
+	cin >> calcType;
 
-		system("cls");
+	int numberB;
+	cout << "请输入一个数字: ";
+	cin >> numberB;
 
-		if (name == "Zeng" && pwd == "123456") {
+	int result = 0;
+	switch (calcType) {
+	case '+':
+			result = numberA + numberB;
 			break;
-		} else {
-			cout << "用户名或密码错误！" << endl;
-			system("pause");
+	case '-':
+		result = numberA - numberB;
+		break;
+	case '*':
+		result = numberA * numberB;
+		break;
+	case '/':
+		if (numberB == 0) {
+			cout << "除数不能为0" << endl;
+			exit(1);
 		}
+		result = numberA / numberB;
+		break;
+	case '%':
+		if (numberB == 0) {
+			cout << "取余数不能为0" << endl;
+			exit(1);
+		}
+		result = numberA % numberB;
+		break;
+	default:
+		cout << "仅支持+，-，*，/，%" << endl;
+		exit(1);
+		break;
 	}
 
-	system("cls");
-
-	cout << "1.网站404攻击" << endl;
-	cout << "2.网站篡改攻击" << endl;
-	cout << "3.网站攻击记录" << endl;
-	cout << "4.DNS攻击" << endl;
-	cout << "5.服务器重启攻击" << endl;
+	cout << numberA << calcType << numberB << "=" << result << endl;
 
 	system("pause");
 	return 0;
